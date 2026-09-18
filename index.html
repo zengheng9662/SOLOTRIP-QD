@@ -102,7 +102,7 @@ body *{letter-spacing:0!important}
 .foodIntro{padding:18px 12px 15px;background:#fff;border-bottom:1px solid var(--line)}.foodKicker{margin:0;color:var(--purple);font-size:9px;font-weight:900}.foodIntro h2{margin:6px 0 8px;font-size:28px;line-height:1;font-weight:820}.foodLead{margin:0;color:#665f6c;font-size:12px;line-height:1.65}.tasteGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:13px}.taste{min-width:0;background:var(--purple-soft);border:1px solid #e8e1fb;border-radius:5px;padding:8px}.taste b{display:block;color:var(--purple-deep);font-size:11px}.taste span{display:block;margin-top:3px;color:#81798a;font-size:9px;line-height:1.35}
 .foodToolbar{display:flex;align-items:center;gap:6px;padding:12px 10px 7px;overflow:auto}.foodFilter{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#746f7b;border-radius:4px;padding:7px 9px;font-size:10px;font-weight:800}.foodFilter.on{background:var(--purple);border-color:var(--purple);color:#fff}.foodAdd{margin-left:auto;white-space:nowrap;border:0;background:var(--purple);color:#fff;border-radius:4px;padding:8px 10px;font-size:10px;font-weight:900}
 .foodMapWrap{margin:0 10px;background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden}.foodMap{height:300px;background:#eeeaf6}.mapStatus{padding:7px 9px;border-top:1px solid var(--line);color:#8b8392;font-size:9px}.foodPin{display:grid;place-items:center;width:25px;height:25px;border:2px solid #fff;border-radius:50%;background:var(--purple);color:#fff;font-size:10px;font-weight:900;box-shadow:0 3px 12px rgba(56,37,105,.3)}.leaflet-div-icon{border:0;background:transparent}.leaflet-popup-content-wrapper{border-radius:6px}.leaflet-popup-content{margin:10px 12px;font-family:inherit;font-size:11px}.leaflet-control-zoom a{color:var(--purple-deep)}
-.foodList{display:grid;gap:7px;padding:10px}.foodCard{background:#fff;border:1px solid var(--line);border-radius:7px;padding:11px}.foodCardTop{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:start}.foodNo{width:24px;height:24px;display:grid;place-items:center;background:var(--purple-soft);color:var(--purple-deep);border-radius:50%;font-size:10px;font-weight:900}.foodName{font-size:13px;font-weight:900;line-height:1.3}.foodPrice{color:var(--purple-deep);font-size:11px;font-weight:900}.foodAddr{margin:5px 0 0 36px;color:#81798a;font-size:10px;line-height:1.45}.foodTags{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0 0 36px}.foodTag{padding:4px 6px;border-radius:3px;background:#f4f1f7;color:#6b6372;font-size:9px}.foodTag.warn{background:#fff3df;color:#9a6818}.foodActions{display:flex;gap:6px;margin:9px 0 0 36px}.foodAction{flex:1;border:1px solid #ddd6e7;background:#fff;color:var(--purple-deep);border-radius:4px;padding:7px;text-align:center;text-decoration:none;font-size:10px;font-weight:900}.foodAction.meituan{background:var(--purple);border-color:var(--purple);color:#fff}.foodDelete{border:1px solid #f1d1d0;background:#fff;color:#d65a57;border-radius:4px;padding:7px 9px;font-size:10px;font-weight:900}
+.foodList{display:grid;gap:7px;padding:10px}.foodCard{background:#fff;border:1px solid var(--line);border-radius:7px;padding:11px}.foodCardTop{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:start}.foodNo{width:24px;height:24px;display:grid;place-items:center;background:var(--purple-soft);color:var(--purple-deep);border-radius:50%;font-size:10px;font-weight:900}.foodName{font-size:13px;font-weight:900;line-height:1.3}.foodPrice{color:var(--purple-deep);font-size:11px;font-weight:900;text-align:right}.foodRating{display:block;margin-top:2px;color:#ef8d24;font-size:9px}.foodAddr{margin:5px 0 0 36px;color:#81798a;font-size:10px;line-height:1.45}.foodTags{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0 0 36px}.foodTag{padding:4px 6px;border-radius:3px;background:#f4f1f7;color:#6b6372;font-size:9px}.foodTag.warn{background:#fff3df;color:#9a6818}.foodActions{display:flex;gap:6px;margin:9px 0 0 36px}.foodAction{flex:1;border:1px solid #ddd6e7;background:#fff;color:var(--purple-deep);border-radius:4px;padding:7px;text-align:center;text-decoration:none;font-size:10px;font-weight:900}.foodAction.meituan{background:var(--purple);border-color:var(--purple);color:#fff}.foodAction.copied{background:#eef9f0;border-color:#b8dfc0;color:#28763a}.foodDelete{border:1px solid #f1d1d0;background:#fff;color:#d65a57;border-radius:4px;padding:7px 9px;font-size:10px;font-weight:900}
 .foodModalHint{margin:0 0 8px;color:#7b7382;font-size:10px;line-height:1.5}.foodFormRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.foodForm select{width:100%;border:1px solid var(--line);border-radius:5px;padding:9px 10px;font:inherit;font-size:13px;background:#fff;color:var(--ink)}
 @media(max-width:420px){.tasteGrid{grid-template-columns:repeat(2,1fr)}.foodMap{height:270px}}
 </style>
@@ -150,6 +150,7 @@ body *{letter-spacing:0!important}
     <div class="cForm foodForm">
       <label>店名<input id="foodName" placeholder="如 众品老方子锅贴甜沫"></label>
       <div class="foodFormRow"><label>分类<select id="foodCategory"><option>海鲜</option><option>小吃</option><option>面点</option><option>甜品</option><option>咖啡</option><option>西餐</option><option>其他</option></select></label><label>人均<input id="foodPrice" placeholder="如 30" inputmode="numeric"></label></div>
+      <label>美团 / 大众点评评分（可选）<input id="foodRating" placeholder="如 4.6" inputmode="decimal"></label>
       <label>地址<input id="foodAddress" placeholder="青岛市市南区……"></label>
       <label>标签<input id="foodTagsInput" placeholder="招牌菜、早餐、顺路"></label>
       <div class="cModalActions"><button class="cSave" id="foodSave">保存并定位</button></div>
@@ -196,7 +197,7 @@ const FOOD_SEED=[
  {id:"fbai",name:"白色日记·手作酸奶",category:"甜品",price:"24",address:"市南区，具体门店待核对",lat:36.0725,lng:120.3540,tags:["零蔗糖酸奶","冰淇淋杯","位置待核对"],verified:false},
  {id:"fyushi",name:"鱼时海鲜面",category:"面点",price:"42",address:"市南区，具体门店待核对",lat:36.0670,lng:120.3370,tags:["大虾海鲜面","手擀面","位置待核对"],verified:false},
  {id:"fanna",name:"安娜 acKONA 咖啡",category:"咖啡",price:"38",address:"市南区，具体门店待核对",lat:36.0658,lng:120.3450,tags:["咸奶油美式","冰美式","位置待核对"],verified:false},
- {id:"fgrand",name:"GRAND SABLON",category:"西餐",price:"待核对",address:"青岛市，具体门店待核对",lat:36.0665,lng:120.3915,tags:["西餐","热门榜","位置待核对"],verified:false}
+ {id:"fgrand",name:"GRAND SABLON",category:"西餐",price:"待核对",rating:"4.6",address:"青岛市，具体门店待核对",lat:36.0665,lng:120.3915,tags:["西餐","热门榜","位置待核对"],verified:false}
 ];
 const FOOD_KEY="qd_food_v1";
 let foodCustom=JSON.parse(localStorage.getItem(FOOD_KEY)||"[]"),foodFilter="全部",foodMap=null,foodMarkers=[];
@@ -370,6 +371,10 @@ function openMeituan(name){
  const fallback=foodSearchUrl(name),app="imeituan://www.meituan.com/search?q="+encodeURIComponent("青岛 "+name),started=Date.now();
  window.location.href=app;setTimeout(()=>{if(!document.hidden&&Date.now()-started<1800)window.open(fallback,"_blank")},900);
 }
+async function copyFoodName(name,button){
+ const text="青岛 "+name;
+ try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(text);else{const t=document.createElement("textarea");t.value=text;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}button.textContent="已复制";button.classList.add("copied");setTimeout(()=>{button.textContent="复制店名";button.classList.remove("copied")},1400)}catch{prompt("复制店名后到美团或高德搜索",text)}
+}
 function setFoodMode(on){
  $(".app").classList.toggle("foodMode",on);
  $("#foodTab")?.classList.toggle("active",on);
@@ -394,11 +399,12 @@ function renderFood(){
  $("#tasteGrid").innerHTML=FOOD_TASTES.map(x=>`<div class="taste"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
  initFoodMap();foodMarkers.forEach(m=>m.remove());foodMarkers=[];
  const visible=foodItems().filter(x=>foodFilter==="全部"||x.category===foodFilter);
- $("#foodList").innerHTML=visible.map((x,i)=>`<article class="foodCard" data-food="${esc(x.id)}"><div class="foodCardTop"><span class="foodNo">${i+1}</span><div class="foodName">${esc(x.name)}</div><span class="foodPrice">人均 ${x.price==="待核对"?"待核对":"¥"+esc(x.price)}</span></div><div class="foodAddr">${esc(x.address)}</div><div class="foodTags">${x.tags.map(t=>`<span class="foodTag${t.includes("待核对")?" warn":""}">${esc(t)}</span>`).join("")}</div><div class="foodActions"><a class="foodAction" href="${amap(x.name)}" target="_blank" rel="noopener">高德</a><button class="foodAction meituan" data-meituan="${esc(x.name)}">美团</button>${x.custom?`<button class="foodDelete" data-delete-food="${esc(x.id)}">删除</button>`:""}</div></article>`).join("");
+ $("#foodList").innerHTML=visible.map((x,i)=>`<article class="foodCard" data-food="${esc(x.id)}"><div class="foodCardTop"><span class="foodNo">${i+1}</span><div class="foodName">${esc(x.name)}</div><span class="foodPrice">人均 ${x.price==="待核对"?"待核对":"¥"+esc(x.price)}${x.rating?`<small class="foodRating">★ ${esc(x.rating)}</small>`:""}</span></div><div class="foodAddr">${esc(x.address)}</div><div class="foodTags">${x.tags.map(t=>`<span class="foodTag${t.includes("待核对")?" warn":""}">${esc(t)}</span>`).join("")}</div><div class="foodActions"><a class="foodAction" href="${amap(x.name)}" target="_blank" rel="noopener">高德</a><button class="foodAction meituan" data-meituan="${esc(x.name)}">美团</button>${x.verified===false?`<button class="foodAction" data-copy-food="${esc(x.name)}">复制店名</button>`:""}${x.custom?`<button class="foodDelete" data-delete-food="${esc(x.id)}">删除</button>`:""}</div></article>`).join("");
  visible.forEach((x,i)=>{if(foodMap&&Number.isFinite(x.lat)&&Number.isFinite(x.lng)){const point=x.custom?[x.lat,x.lng]:gcjToWgs(x.lat,x.lng),m=L.marker(point,{icon:foodIcon(i+1,x.verified!==false)}).addTo(foodMap).bindPopup(`<b>${esc(x.name)}</b><br>${esc(x.address)}<br>人均 ${x.price==="待核对"?"待核对":"¥"+esc(x.price)}`);m.foodId=x.id;foodMarkers.push(m)}});
  if(foodMap&&foodMarkers.length){const group=L.featureGroup(foodMarkers);foodMap.fitBounds(group.getBounds().pad(.15),{maxZoom:13})}
  $("#mapStatus").textContent=`地图显示 ${foodMarkers.length} 家 · 灰紫标记的位置需要到店前再核对`;
  document.querySelectorAll("[data-meituan]").forEach(b=>b.onclick=()=>openMeituan(b.dataset.meituan));
+ document.querySelectorAll("[data-copy-food]").forEach(b=>b.onclick=()=>copyFoodName(b.dataset.copyFood,b));
  document.querySelectorAll("[data-delete-food]").forEach(b=>b.onclick=()=>{foodCustom=foodCustom.filter(x=>x.id!==b.dataset.deleteFood);localStorage.setItem(FOOD_KEY,JSON.stringify(foodCustom));renderFood()});
  document.querySelectorAll(".foodCard").forEach(c=>c.onclick=e=>{if(e.target.closest("a,button"))return;const m=foodMarkers.find(x=>x.foodId===c.dataset.food);if(m){foodMap.setView(m.getLatLng(),15);m.openPopup();document.querySelector("#foodMap").scrollIntoView({behavior:"smooth",block:"center"})}});
 }
@@ -406,12 +412,13 @@ async function geocodeFood(address){
  if(!address)return null;
  try{const r=await fetch("https://nominatim.openstreetmap.org/search?format=json&limit=1&q="+encodeURIComponent(address+" 青岛"),{headers:{"Accept-Language":"zh-CN"}}),a=await r.json();return a[0]?{lat:Number(a[0].lat),lng:Number(a[0].lon)}:null}catch{return null}
 }
-function openFoodModal(){["foodName","foodPrice","foodAddress","foodTagsInput"].forEach(id=>$("#"+id).value="");$("#foodCategory").value="海鲜";$("#foodOverlay").classList.add("open")}
+function openFoodModal(){["foodName","foodPrice","foodRating","foodAddress","foodTagsInput"].forEach(id=>$("#"+id).value="");$("#foodCategory").value="海鲜";$("#foodOverlay").classList.add("open")}
 $("#foodAdd").onclick=openFoodModal;$("#foodClose").onclick=()=>$("#foodOverlay").classList.remove("open");$("#foodOverlay").onclick=e=>{if(e.target.id==="foodOverlay")e.currentTarget.classList.remove("open")};
 $("#foodSave").onclick=async()=>{
  const name=$("#foodName").value.trim(),address=$("#foodAddress").value.trim();if(!name){$("#foodName").focus();return}
  const btn=$("#foodSave");btn.disabled=true;btn.textContent="定位中…";const pos=await geocodeFood(address);btn.disabled=false;btn.textContent="保存并定位";
- foodCustom.push({id:"fc"+Date.now(),custom:true,name,category:$("#foodCategory").value,price:$("#foodPrice").value.trim()||"待核对",address:address||"地址待补充",tags:$("#foodTagsInput").value.split(/[，,]/).map(x=>x.trim()).filter(Boolean).concat(pos?[]:["位置待核对"]),verified:!!pos,...(pos||{})});
+ const rating=$("#foodRating").value.trim();
+ foodCustom.push({id:"fc"+Date.now(),custom:true,name,category:$("#foodCategory").value,price:$("#foodPrice").value.trim()||"待核对",...(rating?{rating}:{}),address:address||"地址待补充",tags:$("#foodTagsInput").value.split(/[，,]/).map(x=>x.trim()).filter(Boolean).concat(pos?[]:["位置待核对"]),verified:!!pos,...(pos||{})});
  localStorage.setItem(FOOD_KEY,JSON.stringify(foodCustom));$("#foodOverlay").classList.remove("open");renderFood();
 };
 DAYS.forEach((d,i)=>{let b=document.createElement("button");b.className="daybtn";b.textContent=d.id;b.onclick=()=>{current=i;history.replaceState(null,"",location.pathname+location.search);setFoodMode(false);render()};daysEl.insertBefore(b,daysEl.querySelector(".filters"))});
