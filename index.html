@@ -131,7 +131,7 @@ body *{letter-spacing:0!important}
     <div class="foodList" id="foodList"></div>
   </section>
   <section class="barPanel" id="barPanel">
-    <div class="foodIntro"><p class="foodKicker">QINGDAO NIGHT DRINK MAP</p><h2>酒鬼地图</h2><p class="foodLead">按行程活动区挑酒吧：老城、五四广场 / 奥帆、石老人。评分来自高德公开榜单，先看距离，再看酒型。</p></div>
+    <div class="foodIntro"><p class="foodKicker">QINGDAO NIGHT DRINK MAP</p><h2>酒鬼地图</h2><p class="foodLead">重点看大鲍岛里院、中山路与太兴里步行圈；其他片区只保留高德评分 4.5 以上的店。</p></div>
     <div class="foodToolbar" id="barFilters"><button class="foodAdd" id="barAdd">＋ 加酒吧</button></div>
     <div class="foodMapWrap"><div class="foodMap" id="barMap"></div><div class="mapStatus" id="barMapStatus">地图加载后可点标记查看酒吧</div></div>
     <div class="foodList" id="barList"></div>
@@ -226,18 +226,18 @@ const FOOD_MARK_KEY="qd_food_marks_v1";
 let foodCustom=JSON.parse(localStorage.getItem(FOOD_KEY)||"[]").map(x=>({...x,category:x.category==="面点"?"主食":x.category})),foodFilter="全部",foodMap=null,foodMarkers=[];
 let foodMarks=JSON.parse(localStorage.getItem(FOOD_MARK_KEY)||"{}");
 const BAR_SEED=[
- {id:"bloong",name:"LOONG BAR",category:"清吧",rating:"4.7",address:"东海西路21号汐美宿酒店1层",lat:36.0608,lng:120.3740,tags:["五四广场西","高德清吧榜","氛围"]},
- {id:"b2f",name:"2ND FLOOR（燕儿岛路店）",category:"鸡尾酒",rating:"4.6",address:"燕儿岛路15号布町屋铁楼梯",lat:36.0615,lng:120.4020,tags:["奥帆附近","二楼小店","高德清吧榜"]},
- {id:"bfree",name:"自由人（湾仔香港花园店）",category:"清吧",rating:"4.4",address:"江西路163号（苏荷酒吧对面）",lat:36.0710,lng:120.4080,tags:["香港花园","清吧","高德清吧榜"]},
- {id:"bhill",name:"山丘酒馆 MountainTaproom",category:"精酿",rating:"4.4",address:"古田路10号丁",lat:36.0690,lng:120.4140,tags:["燕儿岛路","精酿","高德清吧榜"]},
- {id:"brun",name:"润酒吧 CLUB",category:"LiveHouse",rating:"4.4",address:"江西路175号（高雄路地铁站B1口附近）",lat:36.0710,lng:120.4110,tags:["高雄路","热闹","高德清吧榜"]},
- {id:"bstay",name:"一宿精酿酒馆（南京路店）",category:"精酿",rating:"4.4",address:"南京路128号（宁夏路地铁站B口附近）",lat:36.0820,lng:120.3850,tags:["宁夏路","精酿","高德清吧榜"]},
- {id:"bdemi",name:"DEMI Bar",category:"鸡尾酒",rating:"4.4",address:"闽江一路6号",lat:36.0710,lng:120.3900,tags:["五四广场","鸡尾酒","高德清吧榜"]},
- {id:"bhaitian",name:"青岛海天大酒店·地平线酒廊",category:"酒廊",rating:"4.3",address:"东海西路3号海天大酒店G层",lat:36.0570,lng:120.3670,tags:["海景","酒店酒廊","高德清吧榜"]},
- {id:"bcross",name:"THE CROSSROAD",category:"LiveHouse",rating:"4.1",address:"南京路175号（敦化路地铁站D口附近）",lat:36.0890,lng:120.3850,tags:["敦化路","现场氛围","高德清吧榜"]},
- {id:"bxizhi",name:"熹知·小酒馆",category:"清吧",rating:"3.5",address:"观象二路2号（观象山市立医院地铁站E口附近）",lat:36.0710,lng:120.3230,tags:["老城","行程顺路","高德清吧榜"]}
+ {id:"b1903",name:"1903青岛酒馆MIX·淘醉里院",category:"精酿",rating:"",address:"博山路35号（大鲍岛里院内）",lat:36.071008,lng:120.320278,tags:["里院附近","精酿","步行优先","评分待核对"],near:true,nearRank:1},
+ {id:"bqingmai",name:"青麦酒馆（太兴里）",category:"精酿",rating:"",address:"潍县路19号太兴里",lat:36.0715,lng:120.3200,tags:["里院附近","庭院","现场音乐","评分待核对"],near:true,nearRank:2},
+ {id:"bcamellia",name:"CAMELLIA cafe&bar",category:"鸡尾酒",rating:"",address:"博山路17号",lat:36.0702,lng:120.3201,tags:["里院附近","日咖夜酒","评分待核对"],near:true,nearRank:3},
+ {id:"blegend",name:"青岛啤酒·传奇club",category:"精酿",rating:"",address:"中山路1号（青岛站地铁站G口附近）",lat:36.063082,lng:120.319290,tags:["中山路","剧本体验","青岛啤酒","评分待核对"],near:true,nearRank:4},
+ {id:"bxizhi",name:"熹知·小酒馆",category:"清吧",rating:"3.5",address:"观象二路2号（观象山市立医院地铁站E口附近）",lat:36.0710,lng:120.3230,tags:["老城步行圈","安静","里院备选"],near:true,nearRank:5},
+ {id:"bloong",name:"LOONG BAR",category:"清吧",rating:"4.7",address:"东海西路21号汐美宿酒店1层",lat:36.0608,lng:120.3740,tags:["五四广场西","高德4.7","非里院"]},
+ {id:"bchangle",name:"长乐酒馆",category:"清吧",rating:"4.7",address:"闽江路206号",lat:36.0737,lng:120.4070,tags:["市南区","高德4.7","非里院"]},
+ {id:"btree",name:"THE TREE（树酒馆）",category:"清吧",rating:"4.7",address:"闽江二路13号",lat:36.067740,lng:120.398180,tags:["市南区","高德4.7","非里院"]},
+ {id:"b2f",name:"2ND FLOOR（燕儿岛路店）",category:"鸡尾酒",rating:"4.6",address:"燕儿岛路15号布町屋铁楼梯",lat:36.0615,lng:120.4020,tags:["奥帆附近","高德4.6","非里院"]},
+ {id:"b404",name:"404 Club Not Found（万象城店）",category:"鸡尾酒",rating:"4.6",address:"山东路6号甲青岛万象城1期LG层",lat:36.0658,lng:120.3783,tags:["万象城","高德4.6","非里院"]}
 ];
-const BAR_KEY="qd_bars_v1",BAR_ORDER_KEY="qd_bar_order_v1",BAR_MARK_KEY="qd_bar_marks_v1";
+const BAR_KEY="qd_bars_v1",BAR_ORDER_KEY="qd_bar_order_v2",BAR_MARK_KEY="qd_bar_marks_v1";
 let barCustom=JSON.parse(localStorage.getItem(BAR_KEY)||"[]"),barMarks=JSON.parse(localStorage.getItem(BAR_MARK_KEY)||"{}"),barFilter="全部",barMap=null,barMarkers=[];
 let dayMap=null,dayMapLayers=null;
 let current=0,filter="ab";
@@ -481,14 +481,14 @@ function bindFoodDrag(){
  })
 }
 function barItems(){
- const all=[...BAR_SEED,...barCustom],saved=JSON.parse(localStorage.getItem(BAR_ORDER_KEY)||"null");if(!Array.isArray(saved))return all.sort((a,b)=>(Number(b.rating)||0)-(Number(a.rating)||0));const pos=new Map(saved.map((id,i)=>[id,i]));return all.sort((a,b)=>(pos.get(a.id)??9999)-(pos.get(b.id)??9999));
+ const all=[...BAR_SEED,...barCustom],saved=JSON.parse(localStorage.getItem(BAR_ORDER_KEY)||"null");if(!Array.isArray(saved))return all.sort((a,b)=>(b.near?1:0)-(a.near?1:0)||(a.nearRank??99)-(b.nearRank??99)||(Number(b.rating)||0)-(Number(a.rating)||0));const pos=new Map(saved.map((id,i)=>[id,i]));return all.sort((a,b)=>(pos.get(a.id)??9999)-(pos.get(b.id)??9999));
 }
 function initBarMap(){if(barMap||!window.L)return;barMap=L.map("barMap",{zoomControl:true,scrollWheelZoom:false}).setView([36.07,120.38],13);L.tileLayer("https://webst0{s}.is.autonavi.com/appmaptile?style=7&x={x}&y={y}&z={z}",{subdomains:["1","2","3","4"],maxZoom:19,attribution:"高德地图底图"}).addTo(barMap)}
 function renderBars(){
  initBarMap();barMarkers.forEach(m=>m.remove());barMarkers=[];const visible=barItems().filter(x=>barFilter==="全部"||x.category===barFilter);
  $("#barList").innerHTML=visible.map(x=>{const mark=Number(barMarks[x.id])||0;return `<article class="foodCard" data-bar="${esc(x.id)}"><div class="foodCardTop"><span class="foodDrag" title="拖动排序">≡</span><div class="foodName">${esc(x.name)}</div><span class="foodPrice">${x.rating?`<small class="foodRating">★ ${esc(x.rating)} · 高德</small>`:"评分待核对"}</span></div><div class="foodAddr">${esc(x.address)}</div><div class="foodTags">${x.tags.map(t=>`<span class="foodTag">${esc(t)}</span>`).join("")}</div><div class="foodActions"><a class="foodAction" href="${amapSearch(x.name)}" target="_blank" rel="noopener">高德</a><a class="foodAction" href="${appleMap(x.name+" "+x.address,x.lat,x.lng)}" target="_blank" rel="noopener">苹果地图</a><button class="foodAction${mark?" marked":""}" data-mark-bar="${esc(x.id)}">${mark?"刷到 ×"+mark:"标记刷到"}</button><button class="foodAction" data-copy-bar="${esc(x.name)}">复制店名</button>${x.custom?`<button class="foodDelete" data-delete-bar="${esc(x.id)}">删除</button>`:""}</div></article>`}).join("");
  visible.forEach(x=>{if(barMap&&x.lat&&x.lng){const m=L.marker([x.lat,x.lng],{icon:foodIcon(true)}).addTo(barMap).bindPopup(`<b>${esc(x.name)}</b><br>${esc(x.address)}<br>${x.rating?"高德评分 "+esc(x.rating):"评分待核对"}`);m.barId=x.id;barMarkers.push(m)}});if(barMap&&barMarkers.length)barMap.fitBounds(L.featureGroup(barMarkers).getBounds().pad(.15),{maxZoom:14});
- $("#barMapStatus").textContent=`地图显示 ${barMarkers.length} 家 · 片区定位，门牌位置以高德按钮为准`;
+ $("#barMapStatus").textContent=`里院步行圈优先 · 其他片区仅保留高德 4.5+`;
  document.querySelectorAll("[data-mark-bar]").forEach(b=>b.onclick=()=>{const id=b.dataset.markBar,next=(Number(barMarks[id])||0)%10+1;barMarks[id]=next;localStorage.setItem(BAR_MARK_KEY,JSON.stringify(barMarks));b.textContent="刷到 ×"+next;b.classList.add("marked")});
  document.querySelectorAll("[data-copy-bar]").forEach(b=>b.onclick=()=>copyFoodName(b.dataset.copyBar,b));document.querySelectorAll("[data-delete-bar]").forEach(b=>b.onclick=()=>{barCustom=barCustom.filter(x=>x.id!==b.dataset.deleteBar);localStorage.setItem(BAR_KEY,JSON.stringify(barCustom));renderBars()});document.querySelectorAll("[data-bar]").forEach(c=>c.onclick=e=>{if(e.target.closest("a,button,.foodDrag"))return;const m=barMarkers.find(x=>x.barId===c.dataset.bar);if(m){barMap.setView(m.getLatLng(),15);m.openPopup();$("#barMap").scrollIntoView({behavior:"smooth",block:"center"})}});
  bindBarDrag();
