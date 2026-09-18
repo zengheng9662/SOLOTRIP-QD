@@ -12,7 +12,7 @@
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;-webkit-tap-highlight-color:transparent}
 button{font:inherit}.app{max-width:760px;margin:auto;padding-bottom:40px}.top{position:sticky;top:0;z-index:1000;background:rgba(246,248,251,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .days{display:flex;align-items:center;gap:6px;padding:8px 10px}.daybtn{border:0;background:transparent;color:#98a5ad;font-weight:900;padding:8px 11px;border-radius:12px}.daybtn.active{background:#152b38;color:#fff}.filters{margin-left:auto;display:flex;gap:3px}.fbtn{border:0;background:transparent;color:#a0acb3;font-size:10px;padding:6px}.fbtn.on{color:#263c49;font-weight:900}
-.routePreview{height:auto;background:#eef2f5;padding:8px 10px 0}.routePreview img{display:block;width:100%;border-radius:18px;border:1px solid var(--line);background:#fff}
+.routePreview{height:auto;background:#eef2f5;padding:8px 10px 0}.routeMapWrap{overflow:hidden;border:1px solid var(--line);border-radius:7px;background:#fff}.routeMap{height:310px;background:#eeeaf6}.routeMapStatus{padding:7px 9px;border-top:1px solid var(--line);color:#8b8392;font-size:9px}.routePin{display:grid;place-items:center;width:25px;height:25px;border:2px solid #fff;border-radius:50%;background:var(--purple);color:#fff;font-size:10px;font-weight:900;box-shadow:0 3px 12px rgba(56,37,105,.3)}
 .todayBlock{padding:10px 10px 0}.blockTitle{font-size:10px;color:#8797a1;font-weight:900;letter-spacing:.06em;margin:0 2px 7px}.arrival{overflow:auto;display:flex;gap:7px;scrollbar-width:none}.arriveCard{min-width:105px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:8px 9px;text-align:left;position:relative}.arriveCard:before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:4px;background:var(--a)}.arriveCard.s:before{background:var(--s)}.arriveCard.b:before{background:var(--b)}.arriveCard.lock:before{background:var(--lock)}.arriveTime{font-size:11px;font-weight:900}.arriveName{font-size:11px;color:#667986;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.arriveNo{font-size:9px;color:#a5b0b7;float:right}
 .summary{display:flex;gap:6px;margin-top:8px;overflow:auto}.chip{white-space:nowrap;font-size:10px;font-weight:800;background:#fff;border:1px solid var(--line);padding:5px 8px;border-radius:999px;color:#60747f}
 .legend{padding:7px 11px 2px;font-size:9px;color:#98a5ad}.legend i{display:inline-block;width:6px;height:6px;border-radius:50%;margin:0 3px 0 8px}.legend i:first-child{margin-left:0}.timeline{margin:8px 10px 0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}.timeline:before{content:"";position:absolute;left:92px;top:23px;bottom:23px;width:1px;background:#dde6eb}
@@ -75,7 +75,7 @@ button{font:inherit}.app{max-width:760px;margin:auto;padding-bottom:40px}.top{po
 .cModalActions{display:flex;align-items:center;gap:8px;margin-top:16px}
 .cDel{border:1px solid #f0c9c7;background:#fff;color:#d9534f;border-radius:11px;padding:9px 14px;font-size:12px;font-weight:900}
 .cSave{flex:1;border:0;background:#152b38;color:#fff;border-radius:11px;padding:11px;font-size:13px;font-weight:950}
-@media(min-width:700px){.routePreview img{max-height:360px;object-fit:cover}.photo{min-width:65%;height:300px}.guide{left:50%;transform:translateX(-50%);width:680px;bottom:14px;border-radius:25px;max-height:88vh}}
+@media(min-width:700px){.routeMap{height:360px}.photo{min-width:65%;height:300px}.guide{left:50%;transform:translateX(-50%);width:680px;bottom:14px;border-radius:25px;max-height:88vh}}
 /* Portfolio-inspired fresh purple theme */
 :root{--bg:#faf8ff;--card:#fff;--ink:#17131d;--muted:#746f7b;--line:#e8e4ee;--s:#25a879;--a:#6f46ff;--b:#e5a337;--lock:#ef625f;--purple:#6f46ff;--purple-deep:#5530d8;--purple-soft:#f5f1ff}
 body{background:var(--bg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
@@ -87,7 +87,7 @@ body *{letter-spacing:0!important}
 .tripMeta{display:flex;justify-content:space-between;gap:12px;margin-top:13px;color:var(--muted);font-size:10px}.tripMeta strong{color:var(--purple-deep)}
 .top{background:rgba(255,255,255,.94);border-bottom:1px solid rgba(111,70,255,.12)}
 .days{padding:8px 10px;gap:4px}.daybtn{color:#8e8797;border-radius:4px;padding:8px 12px}.daybtn.active{background:var(--purple);color:#fff}.fbtn{color:#aaa3b2;border-bottom:2px solid transparent;border-radius:0}.fbtn.on{color:var(--purple-deep);border-bottom-color:var(--purple);font-weight:900}
-.routePreview{background:var(--purple-soft);padding:10px}.routePreview img{border-radius:5px;border-color:#ded6f4}
+.routePreview{background:var(--purple-soft);padding:10px}
 .todayBlock{padding:15px 10px 12px;background:#fff;border-bottom:1px solid var(--line)}
 .blockTitle,.tTitle,.customHead>span,.gtitle{color:var(--purple);letter-spacing:.12em}
 .arriveCard{border-radius:6px;border-color:var(--line);box-shadow:none}.arriveCard:before{border-radius:0}.summary{margin-top:9px}.chip{border-radius:4px;background:var(--purple-soft);border-color:#e5ddff;color:#5e5571}
@@ -98,7 +98,7 @@ body *{letter-spacing:0!important}
 .guide{border-radius:9px 9px 0 0}.ghead{border-bottom-color:var(--line)}.ghead h2{letter-spacing:0}.close{border-radius:50%;background:var(--purple-soft);color:var(--purple-deep)}.photo{border-radius:6px}.gInfoRow,.shot,.mini{border-radius:5px;background:var(--purple-soft)}.guideAppBtn{border-radius:5px}.guideAppBtn.amap{background:var(--purple)}.guideAppBtn.xhs{background:#f1eef5}.stepNo{background:var(--purple)}
 .cModal{border-radius:8px}.cForm input,.cForm textarea,.cDel,.cSave{border-radius:5px}.cSave{background:var(--purple)}
 @media(min-width:700px){.tripIntro{padding:26px 18px 22px}.tripIntro h1{font-size:44px}.guide{border-radius:9px}}
-.foodPanel{display:none;padding-bottom:44px}.app.foodMode .foodPanel{display:block}.app.foodMode .routePreview,.app.foodMode .todayBlock,.app.foodMode .legend,.app.foodMode .trans,.app.foodMode .timeline,.app.foodMode .customSec{display:none}.foodbtn{color:var(--purple)!important}.foodbtn.active{color:#fff!important}
+.foodPanel,.barPanel{display:none;padding-bottom:44px}.app.foodMode .foodPanel{display:block}.app.barMode .barPanel{display:block}.app.foodMode .routePreview,.app.foodMode .todayBlock,.app.foodMode .legend,.app.foodMode .trans,.app.foodMode .timeline,.app.foodMode .customSec,.app.barMode .routePreview,.app.barMode .todayBlock,.app.barMode .legend,.app.barMode .trans,.app.barMode .timeline,.app.barMode .customSec{display:none}.foodbtn,.barbtn{color:var(--purple)!important}.foodbtn.active,.barbtn.active{color:#fff!important}
 .foodIntro{padding:18px 12px 15px;background:#fff;border-bottom:1px solid var(--line)}.foodKicker{margin:0;color:var(--purple);font-size:9px;font-weight:900}.foodIntro h2{margin:6px 0 8px;font-size:28px;line-height:1;font-weight:820}.foodLead{margin:0;color:#665f6c;font-size:12px;line-height:1.65}.tasteGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:13px}.taste{min-width:0;background:var(--purple-soft);border:1px solid #e8e1fb;border-radius:5px;padding:8px}.taste b{display:block;color:var(--purple-deep);font-size:11px}.taste span{display:block;margin-top:3px;color:#81798a;font-size:9px;line-height:1.35}
 .foodToolbar{display:flex;align-items:center;gap:6px;padding:12px 10px 7px;overflow:auto}.foodFilter{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#746f7b;border-radius:4px;padding:7px 9px;font-size:10px;font-weight:800}.foodFilter.on{background:var(--purple);border-color:var(--purple);color:#fff}.foodAdd{margin-left:auto;white-space:nowrap;border:0;background:var(--purple);color:#fff;border-radius:4px;padding:8px 10px;font-size:10px;font-weight:900}
 .foodMapWrap{margin:0 10px;background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden}.foodMap{height:300px;background:#eeeaf6}.mapStatus{padding:7px 9px;border-top:1px solid var(--line);color:#8b8392;font-size:9px}.foodPin{display:grid;place-items:center;width:25px;height:25px;border:2px solid #fff;border-radius:50%;background:var(--purple);color:#fff;font-size:10px;font-weight:900;box-shadow:0 3px 12px rgba(56,37,105,.3)}.leaflet-div-icon{border:0;background:transparent}.leaflet-popup-content-wrapper{border-radius:6px}.leaflet-popup-content{margin:10px 12px;font-family:inherit;font-size:11px}.leaflet-control-zoom a{color:var(--purple-deep)}
@@ -111,7 +111,7 @@ body *{letter-spacing:0!important}
 <div class="app">
   <header class="tripIntro"><p class="tripEyebrow">QINGDAO · SOLO TRIP / 2026</p><h1>青岛<span>行</span></h1><div class="tripMeta"><span>09.21—09.25</span><strong>山海 · 老城 · 喜剧</strong></div></header>
   <div class="top"><div class="days" id="days"><div class="filters"><button class="fbtn" data-filter="all">全</button><button class="fbtn on" data-filter="ab">S+A</button><button class="fbtn" data-filter="s">S</button></div></div></div>
-  <div class="routePreview"><img id="routePreviewImg" alt="路线预览"></div>
+  <div class="routePreview"><div class="routeMapWrap"><div class="routeMap" id="routeMap"></div><div class="routeMapStatus" id="routeMapStatus">正在加载当天路线…</div></div></div>
   <div class="todayBlock">
     <div class="blockTitle" id="todayTitle">今天重点景点 / 行程</div>
     <div class="arrival" id="arrival"></div>
@@ -129,6 +129,12 @@ body *{letter-spacing:0!important}
     <div class="foodToolbar" id="foodFilters"><button class="foodAdd" id="foodAdd">＋ 加店</button></div>
     <div class="foodMapWrap"><div class="foodMap" id="foodMap"></div><div class="mapStatus" id="mapStatus">地图加载后可点标记查看店铺</div></div>
     <div class="foodList" id="foodList"></div>
+  </section>
+  <section class="barPanel" id="barPanel">
+    <div class="foodIntro"><p class="foodKicker">QINGDAO NIGHT DRINK MAP</p><h2>酒鬼地图</h2><p class="foodLead">按行程活动区挑酒吧：老城、五四广场 / 奥帆、石老人。评分来自高德公开榜单，先看距离，再看酒型。</p></div>
+    <div class="foodToolbar" id="barFilters"><button class="foodAdd" id="barAdd">＋ 加酒吧</button></div>
+    <div class="foodMapWrap"><div class="foodMap" id="barMap"></div><div class="mapStatus" id="barMapStatus">地图加载后可点标记查看酒吧</div></div>
+    <div class="foodList" id="barList"></div>
   </section>
 </div>
 <div class="cOverlay" id="cOverlay">
@@ -157,6 +163,19 @@ body *{letter-spacing:0!important}
     </div>
   </div>
 </div>
+<div class="cOverlay" id="barOverlay">
+  <div class="cModal foodModal">
+    <div class="cModalHead"><b>添加酒吧</b><button class="close" id="barClose">×</button></div>
+    <p class="foodModalHint">保存后可直接用高德或苹果地图搜索；自定义内容仅保存在当前浏览器。</p>
+    <div class="cForm foodForm">
+      <label>店名<input id="barName" placeholder="如 海边精酿酒馆"></label>
+      <div class="foodFormRow"><label>分类<select id="barCategory"><option>清吧</option><option>精酿</option><option>鸡尾酒</option><option>LiveHouse</option><option>酒廊</option><option>其他</option></select></label><label>评分<input id="barRating" placeholder="如 4.6" inputmode="decimal"></label></div>
+      <label>地址<input id="barAddress" placeholder="尽量填写区、路和门牌号"></label>
+      <label>标签<input id="barTagsInput" placeholder="用逗号分隔，如 海景,安静,独饮"></label>
+      <div class="cModalActions"><button class="cSave" id="barSave">保存酒吧</button></div>
+    </div>
+  </div>
+</div>
 <div class="guideOverlay" id="guideOverlay">
   <div class="guide" id="guide">
     <div class="handle"></div>
@@ -181,8 +200,8 @@ const UPDATED_DAYS={
   events:[["08:00","起床","洗漱化妆30m + 早餐30m","a",null,null,null],["09:00","退房","带行李出发","a",null,null,null],["09:10","出门","网约车 → 仰口","s",null,null,null],["10:40","到达","崂山仰口","s",36.2395,120.6815,"崂山仰口"],["13:30","结束","崂山仰口","s",null,null,null],["13:40","午饭","景区附近","a",null,null,null],["14:30","出发","网约车 → 石老人 / SPA","a",null,null,null],["16:00","到达","洗浴 / SPA（待定）","a",36.0916,120.4642,null],["17:50","结束","洗浴 / SPA · 整理行李","a",null,null,null],["18:10","出发","步行 / 打车 → 石老人","s",null,null,null],["18:20","到达","石老人","s",36.0876,120.4641,"石老人"],["19:10","结束","石老人","s",null,null,null],["19:20","晚饭","回住宿处附近解决","a",null,null,null],["21:00","准备","确认值机 · 充电 · 早睡","lock",null,null,null]]
  },
  "25":{
-  summary:["04:40 起床","08:10 ZH9924","11:20 深圳T3"],
-  events:[["04:40","起床","洗漱 · 最后检查行李","lock",null,null,null],["05:00","退房","确认身份证 / 登机牌 / 充电设备","lock",null,null,null],["05:10","出发","网约车 → 青岛胶东机场","lock",null,null,null],["06:20","到达","青岛胶东机场","lock",36.3619,120.0883,null],["06:25","办理","值机托运 · 安检","lock",null,null,null],["07:20","到达","登机口（以当天通知为准）","lock",null,null,null],["08:10","起飞","深圳航空 ZH9924","lock",36.3619,120.0883,null],["11:20","到达","深圳宝安机场 T3","lock",22.6393,113.8107,null]]
+  summary:["04:20 起床","08:10 ZH9924","11:20 深圳T3"],
+  events:[["04:20","起床","洗漱 · 最后检查行李","lock",null,null,null],["04:40","退房","石老人片区住宿 · 确认证件 / 登机牌","lock",36.0916,120.4642,null],["04:50","出发","网约车 → 青岛胶东机场","lock",null,null,null],["06:00","到达","青岛胶东机场","lock",36.3619,120.0883,null],["06:05","办理","值机托运 · 安检","lock",null,null,null],["07:20","到达","登机口（以当天通知为准）","lock",null,null,null],["08:10","起飞","深圳航空 ZH9924","lock",36.3619,120.0883,null],["11:20","到达","深圳宝安机场 T3","lock",22.6393,113.8107,null]]
  }
 };
 Object.entries(UPDATED_DAYS).forEach(([id,updates])=>Object.assign(DAYS.find(d=>d.id===id),updates));
@@ -206,6 +225,21 @@ const FOOD_ORDER_KEY="qd_food_order_v1";
 const FOOD_MARK_KEY="qd_food_marks_v1";
 let foodCustom=JSON.parse(localStorage.getItem(FOOD_KEY)||"[]").map(x=>({...x,category:x.category==="面点"?"主食":x.category})),foodFilter="全部",foodMap=null,foodMarkers=[];
 let foodMarks=JSON.parse(localStorage.getItem(FOOD_MARK_KEY)||"{}");
+const BAR_SEED=[
+ {id:"bloong",name:"LOONG BAR",category:"清吧",rating:"4.7",address:"东海西路21号汐美宿酒店1层",lat:36.0608,lng:120.3740,tags:["五四广场西","高德清吧榜","氛围"]},
+ {id:"b2f",name:"2ND FLOOR（燕儿岛路店）",category:"鸡尾酒",rating:"4.6",address:"燕儿岛路15号布町屋铁楼梯",lat:36.0615,lng:120.4020,tags:["奥帆附近","二楼小店","高德清吧榜"]},
+ {id:"bfree",name:"自由人（湾仔香港花园店）",category:"清吧",rating:"4.4",address:"江西路163号（苏荷酒吧对面）",lat:36.0710,lng:120.4080,tags:["香港花园","清吧","高德清吧榜"]},
+ {id:"bhill",name:"山丘酒馆 MountainTaproom",category:"精酿",rating:"4.4",address:"古田路10号丁",lat:36.0690,lng:120.4140,tags:["燕儿岛路","精酿","高德清吧榜"]},
+ {id:"brun",name:"润酒吧 CLUB",category:"LiveHouse",rating:"4.4",address:"江西路175号（高雄路地铁站B1口附近）",lat:36.0710,lng:120.4110,tags:["高雄路","热闹","高德清吧榜"]},
+ {id:"bstay",name:"一宿精酿酒馆（南京路店）",category:"精酿",rating:"4.4",address:"南京路128号（宁夏路地铁站B口附近）",lat:36.0820,lng:120.3850,tags:["宁夏路","精酿","高德清吧榜"]},
+ {id:"bdemi",name:"DEMI Bar",category:"鸡尾酒",rating:"4.4",address:"闽江一路6号",lat:36.0710,lng:120.3900,tags:["五四广场","鸡尾酒","高德清吧榜"]},
+ {id:"bhaitian",name:"青岛海天大酒店·地平线酒廊",category:"酒廊",rating:"4.3",address:"东海西路3号海天大酒店G层",lat:36.0570,lng:120.3670,tags:["海景","酒店酒廊","高德清吧榜"]},
+ {id:"bcross",name:"THE CROSSROAD",category:"LiveHouse",rating:"4.1",address:"南京路175号（敦化路地铁站D口附近）",lat:36.0890,lng:120.3850,tags:["敦化路","现场氛围","高德清吧榜"]},
+ {id:"bxizhi",name:"熹知·小酒馆",category:"清吧",rating:"3.5",address:"观象二路2号（观象山市立医院地铁站E口附近）",lat:36.0710,lng:120.3230,tags:["老城","行程顺路","高德清吧榜"]}
+];
+const BAR_KEY="qd_bars_v1",BAR_ORDER_KEY="qd_bar_order_v1",BAR_MARK_KEY="qd_bar_marks_v1";
+let barCustom=JSON.parse(localStorage.getItem(BAR_KEY)||"[]"),barMarks=JSON.parse(localStorage.getItem(BAR_MARK_KEY)||"{}"),barFilter="全部",barMap=null,barMarkers=[];
+let dayMap=null,dayMapLayers=null;
 let current=0,filter="ab";
 const $=s=>document.querySelector(s), daysEl=$("#days"),timeline=$("#timeline"),arrival=$("#arrival"),summary=$("#summary");
 /* —— 交通方式推荐（可手动切换，选择自动记忆） —— */
@@ -307,6 +341,19 @@ function appleRoute(a,b){
 function appleNav(name,lat,lng){
   return appleMap(name,lat,lng);
 }
+function amapSearch(name){return "https://uri.amap.com/search?keyword="+encodeURIComponent("青岛 "+name)+"&city="+encodeURIComponent("青岛")+"&src=SOLOTRIP-QD"}
+function routeIcon(n){return L.divIcon({className:"",html:`<div class="routePin">${n}</div>`,iconSize:[25,25],iconAnchor:[12,12]})}
+function renderDayMap(d){
+ if(!window.L){$("#routeMapStatus").textContent="地图服务暂未加载";return}
+ if(!dayMap){dayMap=L.map("routeMap",{zoomControl:true,scrollWheelZoom:false}).setView([36.07,120.35],12);L.tileLayer("https://webst0{s}.is.autonavi.com/appmaptile?style=7&x={x}&y={y}&z={z}",{subdomains:["1","2","3","4"],maxZoom:19,attribution:"高德地图底图"}).addTo(dayMap);dayMapLayers=L.layerGroup().addTo(dayMap)}
+ dayMapLayers.clearLayers();const seen=new Set(),nodes=[];
+ orderedEvents(d).forEach(({e})=>{const [time,label,name,p,lat,lng]=e;if(!lat||!lng||lat<35.5||lat>37||lng<119.5||lng>121.5)return;const key=lat.toFixed(4)+","+lng.toFixed(4);if(seen.has(key))return;seen.add(key);nodes.push({time,name,lat,lng})});
+ nodes.forEach((x,i)=>L.marker([x.lat,x.lng],{icon:routeIcon(i+1)}).addTo(dayMapLayers).bindPopup(`<b>${esc(x.time)} ${esc(x.name)}</b><br><a href="${amapSearch(x.name)}" target="_blank">高德查看地点</a>`));
+ if(nodes.length>1)L.polyline(nodes.map(x=>[x.lat,x.lng]),{color:"#6f46ff",weight:4,opacity:.75,dashArray:"8 7"}).addTo(dayMapLayers);
+ (d.mapExtra||[]).forEach(x=>L.circleMarker([x.lat,x.lng],{radius:5,color:"#9b8dbf",fillOpacity:.8}).addTo(dayMapLayers).bindPopup(`<b>${esc(x.name)}</b><br><a href="${amapSearch(x.name)}" target="_blank">高德查看地点</a>`));
+ const layers=dayMapLayers.getLayers();if(layers.length)dayMap.fitBounds(L.featureGroup(layers).getBounds().pad(.12),{maxZoom:nodes.length===1?13:15});setTimeout(()=>dayMap.invalidateSize(),60);
+ $("#routeMapStatus").textContent=`9月${d.id}日 · ${nodes.length}个路线点 · 按当天到达顺序连线`;
+}
 function xhsSearch(name){
   const keyword="青岛 "+name+" 打卡 机位 攻略";
   return "https://www.xiaohongshu.com/search_result?keyword="+encodeURIComponent(keyword);
@@ -343,7 +390,7 @@ function bindTimelineDrag(d){
 function render(){
  const d=DAYS[current];$("#todayTitle").textContent=d.date+" · 今天重点景点 / 行程";
  [...document.querySelectorAll(".daybtn")].forEach((x,i)=>x.classList.toggle("active",i===current));
- summary.innerHTML=d.summary.map(x=>`<span class="chip">${x}</span>`).join("");document.getElementById("routePreviewImg").src=`assets/route-${d.id}.png`;renderArrival(d);timeline.innerHTML="";renderTransport();renderCustom();
+ summary.innerHTML=d.summary.map(x=>`<span class="chip">${x}</span>`).join("");renderDayMap(d);renderArrival(d);timeline.innerHTML="";renderTransport();renderCustom();
  orderedEvents(d).forEach(({e,i})=>{let [t,label,name,p,lat,lng,g]=e;let row=document.createElement("div");row.className=`event ${p} ${showP(p)?"":"hidden"}`;row.dataset.idx=i;let k=`done-${d.id}-${i}`;if(localStorage.getItem(k)==="1")row.classList.add("done");
  let ptxt=p==="s"?"S":p==="a"?"A":p==="b"?"B":"●";
  row.innerHTML=`<div class="edrag">≡</div><div class="etime">${localStorage.getItem(`time-${d.id}-${i}`)||t}</div><div class="edot"></div><div><div class="elabel">${label}</div><div class="ename">${name}<span class="prio">${ptxt}</span></div></div><div class="eactions">${g?'<button class="ebtn detail">›</button>':""}${lat?'<button class="ebtn nav">↗</button>':""}</div>`;
@@ -385,10 +432,18 @@ async function copyFoodName(name,button){
 }
 function setFoodMode(on){
  $(".app").classList.toggle("foodMode",on);
+ $(".app").classList.remove("barMode");
  $("#foodTab")?.classList.toggle("active",on);
+ $("#barTab")?.classList.remove("active");
  document.querySelectorAll(".daybtn:not(.foodbtn)").forEach((b,i)=>b.classList.toggle("active",!on&&i===current));
  $(".filters").style.visibility=on?"hidden":"visible";
  if(on){renderFood();setTimeout(()=>foodMap?.invalidateSize(),80)}
+}
+function setBarMode(on){
+ $(".app").classList.toggle("barMode",on);$(".app").classList.remove("foodMode");
+ $("#barTab")?.classList.toggle("active",on);$("#foodTab")?.classList.remove("active");
+ document.querySelectorAll(".daybtn:not(.foodbtn):not(.barbtn)").forEach((b,i)=>b.classList.toggle("active",!on&&i===current));
+ $(".filters").style.visibility=on?"hidden":"visible";if(on){renderBars();setTimeout(()=>barMap?.invalidateSize(),80)}
 }
 function initFoodMap(){
  if(foodMap||!window.L){if(!window.L)$("#mapStatus").textContent="地图服务暂未加载，可使用下方苹果地图按钮查找店铺";return}
@@ -425,6 +480,20 @@ function bindFoodDrag(){
   window.addEventListener("pointermove",move);window.addEventListener("pointerup",up);
  })
 }
+function barItems(){
+ const all=[...BAR_SEED,...barCustom],saved=JSON.parse(localStorage.getItem(BAR_ORDER_KEY)||"null");if(!Array.isArray(saved))return all.sort((a,b)=>(Number(b.rating)||0)-(Number(a.rating)||0));const pos=new Map(saved.map((id,i)=>[id,i]));return all.sort((a,b)=>(pos.get(a.id)??9999)-(pos.get(b.id)??9999));
+}
+function initBarMap(){if(barMap||!window.L)return;barMap=L.map("barMap",{zoomControl:true,scrollWheelZoom:false}).setView([36.07,120.38],13);L.tileLayer("https://webst0{s}.is.autonavi.com/appmaptile?style=7&x={x}&y={y}&z={z}",{subdomains:["1","2","3","4"],maxZoom:19,attribution:"高德地图底图"}).addTo(barMap)}
+function renderBars(){
+ initBarMap();barMarkers.forEach(m=>m.remove());barMarkers=[];const visible=barItems().filter(x=>barFilter==="全部"||x.category===barFilter);
+ $("#barList").innerHTML=visible.map(x=>{const mark=Number(barMarks[x.id])||0;return `<article class="foodCard" data-bar="${esc(x.id)}"><div class="foodCardTop"><span class="foodDrag" title="拖动排序">≡</span><div class="foodName">${esc(x.name)}</div><span class="foodPrice">${x.rating?`<small class="foodRating">★ ${esc(x.rating)} · 高德</small>`:"评分待核对"}</span></div><div class="foodAddr">${esc(x.address)}</div><div class="foodTags">${x.tags.map(t=>`<span class="foodTag">${esc(t)}</span>`).join("")}</div><div class="foodActions"><a class="foodAction" href="${amapSearch(x.name)}" target="_blank" rel="noopener">高德</a><a class="foodAction" href="${appleMap(x.name+" "+x.address,x.lat,x.lng)}" target="_blank" rel="noopener">苹果地图</a><button class="foodAction${mark?" marked":""}" data-mark-bar="${esc(x.id)}">${mark?"刷到 ×"+mark:"标记刷到"}</button><button class="foodAction" data-copy-bar="${esc(x.name)}">复制店名</button>${x.custom?`<button class="foodDelete" data-delete-bar="${esc(x.id)}">删除</button>`:""}</div></article>`}).join("");
+ visible.forEach(x=>{if(barMap&&x.lat&&x.lng){const m=L.marker([x.lat,x.lng],{icon:foodIcon(true)}).addTo(barMap).bindPopup(`<b>${esc(x.name)}</b><br>${esc(x.address)}<br>${x.rating?"高德评分 "+esc(x.rating):"评分待核对"}`);m.barId=x.id;barMarkers.push(m)}});if(barMap&&barMarkers.length)barMap.fitBounds(L.featureGroup(barMarkers).getBounds().pad(.15),{maxZoom:14});
+ $("#barMapStatus").textContent=`地图显示 ${barMarkers.length} 家 · 片区定位，门牌位置以高德按钮为准`;
+ document.querySelectorAll("[data-mark-bar]").forEach(b=>b.onclick=()=>{const id=b.dataset.markBar,next=(Number(barMarks[id])||0)%10+1;barMarks[id]=next;localStorage.setItem(BAR_MARK_KEY,JSON.stringify(barMarks));b.textContent="刷到 ×"+next;b.classList.add("marked")});
+ document.querySelectorAll("[data-copy-bar]").forEach(b=>b.onclick=()=>copyFoodName(b.dataset.copyBar,b));document.querySelectorAll("[data-delete-bar]").forEach(b=>b.onclick=()=>{barCustom=barCustom.filter(x=>x.id!==b.dataset.deleteBar);localStorage.setItem(BAR_KEY,JSON.stringify(barCustom));renderBars()});document.querySelectorAll("[data-bar]").forEach(c=>c.onclick=e=>{if(e.target.closest("a,button,.foodDrag"))return;const m=barMarkers.find(x=>x.barId===c.dataset.bar);if(m){barMap.setView(m.getLatLng(),15);m.openPopup();$("#barMap").scrollIntoView({behavior:"smooth",block:"center"})}});
+ bindBarDrag();
+}
+function bindBarDrag(){const list=$("#barList");let active=null;list.querySelectorAll(".foodDrag").forEach(h=>h.onpointerdown=e=>{active=h.closest(".foodCard");e.preventDefault();active.classList.add("dragging");const rows=()=>[...list.querySelectorAll(".foodCard")],move=ev=>{let target=null;for(const r of rows()){if(r===active)continue;const box=r.getBoundingClientRect();if(ev.clientY<box.top+box.height/2){target=r;break}}if(target)list.insertBefore(active,target);else list.appendChild(active)},up=()=>{active.classList.remove("dragging");const ids=rows().map(r=>r.dataset.bar),all=barItems().map(x=>x.id),slots=all.map((id,i)=>ids.includes(id)?i:-1).filter(i=>i>=0);slots.forEach((slot,i)=>all[slot]=ids[i]);localStorage.setItem(BAR_ORDER_KEY,JSON.stringify(all));window.removeEventListener("pointermove",move);window.removeEventListener("pointerup",up)};window.addEventListener("pointermove",move);window.addEventListener("pointerup",up)})}
 function openFoodModal(){["foodName","foodPrice","foodRating","foodAddress","foodTagsInput"].forEach(id=>$("#"+id).value="");$("#foodCategory").value="海鲜";$("#foodOverlay").classList.add("open")}
 $("#foodAdd").onclick=openFoodModal;$("#foodClose").onclick=()=>$("#foodOverlay").classList.remove("open");$("#foodOverlay").onclick=e=>{if(e.target.id==="foodOverlay")e.currentTarget.classList.remove("open")};
 $("#foodSave").onclick=async()=>{
@@ -433,13 +502,19 @@ $("#foodSave").onclick=async()=>{
  foodCustom.push({id:"fc"+Date.now(),custom:true,name,category:$("#foodCategory").value,price:$("#foodPrice").value.trim()||"待核对",...(rating?{rating}:{}),address:address||"地址待补充",tags:$("#foodTagsInput").value.split(/[，,]/).map(x=>x.trim()).filter(Boolean).concat(["位置待核对"]),verified:false});
  localStorage.setItem(FOOD_KEY,JSON.stringify(foodCustom));$("#foodOverlay").classList.remove("open");renderFood();
 };
-DAYS.forEach((d,i)=>{let b=document.createElement("button");b.className="daybtn";b.textContent=d.id;b.onclick=()=>{current=i;history.replaceState(null,"",location.pathname+location.search);setFoodMode(false);render()};daysEl.insertBefore(b,daysEl.querySelector(".filters"))});
+DAYS.forEach((d,i)=>{let b=document.createElement("button");b.className="daybtn";b.textContent=d.id;b.onclick=()=>{current=i;history.replaceState(null,"",location.pathname+location.search);setBarMode(false);setFoodMode(false);render()};daysEl.insertBefore(b,daysEl.querySelector(".filters"))});
 const foodTab=document.createElement("button");foodTab.id="foodTab";foodTab.className="daybtn foodbtn";foodTab.textContent="吃";foodTab.onclick=()=>{location.hash="food";setFoodMode(true)};daysEl.insertBefore(foodTab,daysEl.querySelector(".filters"));
+const barTab=document.createElement("button");barTab.id="barTab";barTab.className="daybtn barbtn";barTab.textContent="酒";barTab.onclick=()=>{location.hash="bar";setBarMode(true)};daysEl.insertBefore(barTab,daysEl.querySelector(".filters"));
 const foodCategories=["全部","海鲜","小吃","主食","甜品","咖啡","西餐"];
-foodCategories.forEach(x=>{const b=document.createElement("button");b.className="foodFilter"+(x==="全部"?" on":"");b.textContent=x;b.onclick=()=>{foodFilter=x;document.querySelectorAll(".foodFilter").forEach(n=>n.classList.toggle("on",n===b));renderFood()};$("#foodFilters").insertBefore(b,$("#foodAdd"))});
+foodCategories.forEach(x=>{const b=document.createElement("button");b.className="foodFilter"+(x==="全部"?" on":"");b.textContent=x;b.onclick=()=>{foodFilter=x;$("#foodFilters").querySelectorAll(".foodFilter").forEach(n=>n.classList.toggle("on",n===b));renderFood()};$("#foodFilters").insertBefore(b,$("#foodAdd"))});
+const barCategories=["全部","清吧","精酿","鸡尾酒","LiveHouse","酒廊"];
+barCategories.forEach(x=>{const b=document.createElement("button");b.className="foodFilter"+(x==="全部"?" on":"");b.textContent=x;b.onclick=()=>{barFilter=x;$("#barFilters").querySelectorAll(".foodFilter").forEach(n=>n.classList.toggle("on",n===b));renderBars()};$("#barFilters").insertBefore(b,$("#barAdd"))});
+$("#barAdd").onclick=()=>{["barName","barRating","barAddress","barTagsInput"].forEach(id=>$("#"+id).value="");$("#barCategory").value="清吧";$("#barOverlay").classList.add("open")};$("#barClose").onclick=()=>$("#barOverlay").classList.remove("open");$("#barOverlay").onclick=e=>{if(e.target.id==="barOverlay")e.currentTarget.classList.remove("open")};
+$("#barSave").onclick=()=>{const name=$("#barName").value.trim();if(!name){$("#barName").focus();return}barCustom.push({id:"bc"+Date.now(),custom:true,name,category:$("#barCategory").value,rating:$("#barRating").value.trim(),address:$("#barAddress").value.trim()||"地址待补充",tags:$("#barTagsInput").value.split(/[，,]/).map(x=>x.trim()).filter(Boolean)});localStorage.setItem(BAR_KEY,JSON.stringify(barCustom));$("#barOverlay").classList.remove("open");renderBars()};
 document.querySelectorAll(".fbtn").forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll(".fbtn").forEach(x=>x.classList.toggle("on",x===b));render()});
 render();
 if(location.hash==="#food")setFoodMode(true);
+if(location.hash==="#bar")setBarMode(true);
 </script>
 </body>
 </html>
